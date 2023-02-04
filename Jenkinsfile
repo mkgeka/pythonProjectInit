@@ -13,7 +13,7 @@
  }
  stage('Deploy') {
      echo 'Run the python script'
-     node('python') {
+     node {
         mkobitVar.runMyPython()
      }
  }
