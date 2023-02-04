@@ -12,6 +12,6 @@
      sayHello 'Test'
  }
  stage('Deploy') {
-     echo 'Hello world'
-     sayHello 'Deploy'
+     echo 'Run the python script'
+     mkobitVar.runMyPython()
  }
