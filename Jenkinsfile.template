@@ -1,0 +1,45 @@
+pipeline {
+    agent {
+        node {
+            label 'python-agent'
+            }
+      }
+    triggers {
+        pollSCM '* * * * *'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: 'main']],
+                userRemoteConfigs: [
+                    [ url: 'https://github.com/mkgeka/myPythonProject.git' ]
+                ])
+            }
+        }
+        stage('Build') {
+            steps {
+                echo "Building.."
+                sh '''
+                ls -la
+                touch requirements.txt
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                python3 main.py
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
+            }
+        }
+    }
+}
