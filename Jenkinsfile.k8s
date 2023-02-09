@@ -9,13 +9,13 @@ pipeline {
             some-label: kube-agent
         spec:
           containers:
-          - name: maven
-            image: maven:alpine
+          - name: python
+            image: python
             command:
             - cat
             tty: true
           - name: busybox
-            image: python
+            image: busybox
             command:
             - cat
             tty: true
