@@ -15,7 +15,7 @@ pipeline {
             - cat
             tty: true
           - name: busybox
-            image: busybox
+            image: python
             command:
             - cat
             tty: true
