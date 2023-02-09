@@ -7,6 +7,12 @@ pipeline {
         metadata:
           labels:
             some-label: kube-agent
+        spec:
+          containers:
+          - name: jnlp
+            image: mkgeka/inbound-agent
+            args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+            tty: true
         '''
       retries 2
     }
