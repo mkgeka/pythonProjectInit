@@ -7,18 +7,6 @@ pipeline {
         metadata:
           labels:
             some-label: kube-agent
-        spec:
-          containers:
-          - name: python
-            image: python
-            command:
-            - cat
-            tty: true
-          - name: busybox
-            image: busybox
-            command:
-            - cat
-            tty: true
         '''
       retries 2
     }
